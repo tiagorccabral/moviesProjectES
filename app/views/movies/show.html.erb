@@ -1,0 +1,25 @@
+<h1 align="center">
+  <%= @movie.title %>
+</h1>
+
+<div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Título</th>
+      <th scope="col">Diretor</th>
+      <th scope="col">Data de lançamento</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @movie.title%></td>
+        <td><%= @movie.director%></td>
+        <td><%= @movie.release_date%></td>
+      </tr>
+    </tbody>
+  </table>
+  <p><%= @movie.description %></p>
+
+  <%= link_to "Voltar", root_path, class: 'btn btn-primary' %>
+</div>

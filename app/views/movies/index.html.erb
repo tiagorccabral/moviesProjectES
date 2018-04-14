@@ -1,0 +1,24 @@
+<h2 style="margin: 25px" align="center">Lista de filmes</h2>
+
+<div class="card-deck">
+  <% @movies.each do |movie| %>
+    <div class="col-4">
+      <div style="min-height: 120px; margin: 5px;" class="card">
+        <div class="card-body">
+          <h5 class="card-title" id="<% movie.title %>" ><%= link_to movie.title, movie_path(id: movie) %></h5>
+          <p class="card-text"><small class="text-muted">Diretor: <%= movie.director %></small></p>
+          <%= link_to edit_movie_path(movie) do %>
+            <i style="color: black; margin-right: 10px;" class="fa fa-edit fa-2x"></i>
+          <% end %>
+          <%= link_to movie_path(movie),
+                      method: :delete,
+                      data: {confirm: 'Isto irá deletar este filme do sistema. Tem certeza que deseja continuar?'} do %>
+            <i style="color: darkred;" class="fa fa-times fa-2x"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "Criar novo filme", new_movie_path, class: "btn btn-success" %>
